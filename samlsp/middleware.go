@@ -2,9 +2,10 @@ package samlsp
 
 import (
 	"encoding/xml"
+	"log"
 	"net/http"
 
-	"github.com/crewjam/saml"
+	"github.com/gourlaa/saml"
 )
 
 // Middleware implements middleware than allows a web application
@@ -83,6 +84,7 @@ func (m *Middleware) serveACS(w http.ResponseWriter, r *http.Request) {
 		possibleRequestIDs = append(possibleRequestIDs, tr.SAMLRequestID)
 	}
 
+	log.Println(possibleRequestIDs)
 	assertion, err := m.ServiceProvider.ParseResponse(r, possibleRequestIDs)
 	if err != nil {
 		m.OnError(w, r, err)

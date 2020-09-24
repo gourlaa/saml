@@ -11,8 +11,8 @@ import (
 
 	dsig "github.com/russellhaering/goxmldsig"
 
-	"github.com/crewjam/saml"
-	"github.com/crewjam/saml/logger"
+	"github.com/gourlaa/saml"
+	"github.com/gourlaa/saml/logger"
 )
 
 // Options represents the parameters for creating a new middleware
